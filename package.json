@@ -1,0 +1,10 @@
+{
+  "name": "superscript",
+  "version": "0.1.0",
+  "devDependencies": {
+    "mocha": "3.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
