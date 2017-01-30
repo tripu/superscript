@@ -36,9 +36,9 @@ describe('“hold()”', () => {
     const FOUR_HERTZ = 250;
     const checkAccuracy = () => {
       const DELTA = new Date().getTime() - start - ONE_SECOND;
-      if(DELTA <= 0)
+      if (DELTA <= 0)
         done('ran callback too soon');
-      else if(DELTA >= FOUR_HERTZ)
+      else if (DELTA >= FOUR_HERTZ)
         done('ran callback too late');
       else if (checks < 5)
         done('did not checked condition often enough');
@@ -58,6 +58,26 @@ describe('“hold()”', () => {
     const checkParams = (a, b, c) => done(a === x && b === y && c === z ? null : 'callback did not receive right parameters');
     reset();
     superscript.hold(yes, checkParams, null, x, y, z);
+  });
+
+});
+
+describe('“palette()”', () => {
+
+  const GAMUT = 23;
+
+  var p;
+
+  it('should work', (done) => {
+    p = new superscript.palette(GAMUT);
+    if (!p)
+      done('does not work');
+    else if (GAMUT !== p.n)
+      done('wrong size of palette');
+    else if ('number' !== typeof p.get(0) || 'number' !== typeof p.get(GAMUT - 1))
+      done('cannot retrieve colours');
+    else
+      done();
   });
 
 });

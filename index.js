@@ -24,4 +24,66 @@ const hold = (check, cb, interval, ...args) => {
   })();
 };
 
+/**
+ * Create a palette of <code>n</code> evenly-distributed colours (<em>n ≥ 2</em>).
+ *
+ * Invoke <code>get(i)</code> on the resulting object to retrieve the <em>i<sup>th</sup></em> colour in the palette (<em>0 ≥ i < n</em>).
+ */
+
+const palette = function(n) {
+  if (!n || n < 2)
+    throw new Error('superscript→palette: “n” should be an integer ≥ 2');
+  const MAX = 0xff;
+  var x, r, g, b;
+  this.n = n;
+  this.c = new Array(n);
+  for (let i = 0; i < n; i ++) {
+    x = i * 6 / n;
+    if (x < 1) {
+      r = MAX;
+      g = parseInt(MAX * x);
+      b = 0;
+    } else if (x < 2) {
+      r = parseInt(MAX - MAX * (x - 1));
+      g = MAX;
+      b = 0;
+    } else if (x < 3) {
+      r = 0;
+      g = MAX;
+      b = parseInt(MAX * (x - 2));
+    } else if (x < 4) {
+      r = 0;
+      g = parseInt(MAX - MAX * (x - 3));
+      b = MAX;
+    } else if (x < 5) {
+      r = parseInt(MAX * (x - 4));
+      g = 0;
+      b = MAX;
+    } else {
+      r = MAX;
+      g = 0;
+      b = parseInt(MAX - MAX * (x - 5));
+    }
+    this.c[i] = (r << 16) + (g << 8) + b;
+  }
+};
+
+palette.prototype.get = function(i) {
+  if (!this.hasOwnProperty('n') || !this.hasOwnProperty('c'))
+    throw new Error('superscript→palette→get: wrong palette object');
+  if (i < 0 || i >= this.n)
+    throw new Error('superscript→palette→get: “i” should be an integer ≥ 0 and < n');
+  return this.c[i];
+};
+
+// const cache = () => {};
+
+// const throttle = () => {};
+
+// const debounce = () => {};
+
 exports.hold = hold;
+exports.palette = palette;
+// exports.cache = cache;
+// exports.throttle = throttle;
+// exports.debounce = debounce;
