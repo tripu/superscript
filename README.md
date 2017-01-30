@@ -69,10 +69,10 @@ new superscript.palette(10).get(0, true);  // 'ff0000'
 ```javascript
 // Assume there's a pie chart with 4 slices. Let's assign colours to them:
 const palette = new superscript.palette(4);
-chart[0].css('color', '#' + palette.get(0));
-chart[1].css('color', '#' + palette.get(1));
-chart[2].css('color', '#' + palette.get(2));
-chart[3].css('color', '#' + palette.get(3));
+chart[0].css('color', '#' + palette.get(0, true));
+chart[1].css('color', '#' + palette.get(1, true));
+chart[2].css('color', '#' + palette.get(2, true));
+chart[3].css('color', '#' + palette.get(3, true));
 ```
 
 ### `cache()`
