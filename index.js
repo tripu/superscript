@@ -27,7 +27,9 @@ const hold = (check, cb, interval, ...args) => {
 /**
  * Create a palette of <code>n</code> evenly-distributed colours (<em>n ≥ 2</em>).
  *
- * Invoke <code>get(i)</code> on the resulting object to retrieve the <em>i<sup>th</sup></em> colour in the palette (<em>0 ≥ i < n</em>).
+ * Invoke <code>get(i)</code> on the resulting object to retrieve the <em>i<sup>th</sup></em> colour in the palette (<em>0 ≥ i < n</em>):
+ *
+ * <code>get(i, rbg = false)</code>
  */
 
 const palette = function(n) {
@@ -68,12 +70,15 @@ const palette = function(n) {
   }
 };
 
-palette.prototype.get = function(i) {
+palette.prototype.get = function(i, rgb = false) {
   if (!this.hasOwnProperty('n') || !this.hasOwnProperty('c'))
     throw new Error('superscript→palette→get: wrong palette object');
   if (i < 0 || i >= this.n)
     throw new Error('superscript→palette→get: “i” should be an integer ≥ 0 and < n');
-  return this.c[i];
+  if (rgb)
+    return (0x1000000 + this.c[i]).toString(16).substr(1, 6);
+  else
+    return this.c[i];
 };
 
 // const cache = () => {};

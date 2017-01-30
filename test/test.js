@@ -64,7 +64,8 @@ describe('“hold()”', () => {
 
 describe('“palette()”', () => {
 
-  const GAMUT = 23;
+  const GAMUT = 23,
+    RGB_REGEX = /[\dabcdef]{6}/i;
 
   var p;
 
@@ -76,6 +77,8 @@ describe('“palette()”', () => {
       done('wrong size of palette');
     else if ('number' !== typeof p.get(0) || 'number' !== typeof p.get(GAMUT - 1))
       done('cannot retrieve colours');
+    else if (!p.get(parseInt(GAMUT / 2), true).match(RGB_REGEX))
+      done('RGB colour is incorrect');
     else
       done();
   });

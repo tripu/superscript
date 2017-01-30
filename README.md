@@ -11,14 +11,14 @@
 A library of miscellaneous JavaScript utilities
 
 * [Usage](#usage)
-  * [JavaScript`](#javascript)
+  * [JavaScript](#javascript)
   * [Node.js](#nodejs)
 * [Reference](#reference)
   * [`hold()`](#hold)
   * [`palette()`](#palette)
-<!--  * [`cache()`](#cache)
+  * [`cache()`](#cache)
   * [`throttle()`](#throttle)
-  * [`debounce()`](#debounce) -->
+  * [`debounce()`](#debounce)
 * [Contributing](#contributing)
 * [Credits](#credits)
 
@@ -59,7 +59,12 @@ superscript.palette(n)
 
 Create a palette of `n` evenly-distributed colours (*n ≥ 2*).
 
-Invoke `get(i)` on the resulting object to retrieve the *i<sup>th</sup>* colour in the palette (*0 ≥ i < n*).
+Then, invoke `get(i)` on the resulting object to retrieve the *i<sup>th</sup>* colour in the palette (*0 ≥ i < n*):
+
+```javascript
+new superscript.palette(10).get(5);        // 65535
+new superscript.palette(10).get(0, true);  // 'ff0000'
+```
 
 ```javascript
 // Assume there's a pie chart with 4 slices. Let's assign colours to them:
@@ -70,7 +75,7 @@ chart[2].css('color', '#' + palette.get(2));
 chart[3].css('color', '#' + palette.get(3));
 ```
 
-<!-- ### `cache()`
+### `cache()`
 
 Coming soon.
 
@@ -80,7 +85,7 @@ Coming soon.
 
 ### `debounce()`
 
-Coming soon. -->
+Coming soon.
 
 ## Contributing
 
