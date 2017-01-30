@@ -10,7 +10,27 @@
 
 A library of miscellaneous JavaScript utilities
 
+* [Usage](#usage)
+  * [JavaScript`](#javascript)
+  * [Node.js](#nodejs)
+* [Reference](#reference)
+  * [`hold()`](#hold)
+  * [`palette()`](#palette)
+<!--  * [`cache()`](#cache)
+  * [`throttle()`](#throttle)
+  * [`debounce()`](#debounce) -->
+* [Contributing](#contributing)
+* [Credits](#credits)
+
 ## Usage
+
+### JavaScript
+
+```html
+<script src="https://tripu.github.io/superscript/index.js"></script>
+```
+
+### Node.js
 
 ```bash
 npm install supers
@@ -21,8 +41,6 @@ const superscript = require('supers');
 ```
 
 ## Reference
-
-* [`hold()`](hold)
 
 ### `hold()`
 
@@ -41,16 +59,28 @@ superscript.palette(n)
 
 Create a palette of `n` evenly-distributed colours (*n ≥ 2*).
 
-Invoke `get(i)`` on the resulting object to retrieve the *i<sup>th</sup>* colour in the palette (*0 ≥ i < n*).
+Invoke `get(i)` on the resulting object to retrieve the *i<sup>th</sup>* colour in the palette (*0 ≥ i < n*).
 
 ```javascript
-// Imagine there's a pie chart with 4 slices; let's assign colours to them:
+// Assume there's a pie chart with 4 slices. Let's assign colours to them:
 const palette = new superscript.palette(4);
 chart[0].css('color', '#' + palette.get(0));
 chart[1].css('color', '#' + palette.get(1));
 chart[2].css('color', '#' + palette.get(2));
 chart[3].css('color', '#' + palette.get(3));
 ```
+
+<!-- ### `cache()`
+
+Coming soon.
+
+### `throttle()`
+
+Coming soon.
+
+### `debounce()`
+
+Coming soon. -->
 
 ## Contributing
 

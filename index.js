@@ -82,8 +82,10 @@ palette.prototype.get = function(i) {
 
 // const debounce = () => {};
 
-exports.hold = hold;
-exports.palette = palette;
-// exports.cache = cache;
-// exports.throttle = throttle;
-// exports.debounce = debounce;
+if ('undefined' !== typeof exports) {
+  exports.hold = hold;
+  exports.palette = palette;
+  // exports.cache = cache;
+  // exports.throttle = throttle;
+  // exports.debounce = debounce;
+}
