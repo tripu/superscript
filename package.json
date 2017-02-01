@@ -1,7 +1,19 @@
 {
   "name": "supers",
-  "version": "0.1.0",
-  "respository": "https://github.com/tripu/superscript",
+  "version": "0.1.1",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/tripu/superscript"
+  },
+  "description": "A library of miscellaneous JavaScript utilities",
+  "license": "MIT",
+  "main": "index",
+  "bugs": {
+    "url": "https://github.com/tripu/superscript/issues",
+    "email": "t@tripu.info"
+  },
+  "private": false,
+  "preferGlobal": "false",
   "devDependencies": {
     "coveralls": "2.11.15",
     "istanbul": "0.4.5",
@@ -13,5 +25,9 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "test": "mocha",
     "vulns": "nsp check"
+  },
+  "engines": {
+    "node": "6.9.x || 7.5.x",
+    "npm": "3.10.x || 4.1.x"
   }
 }
