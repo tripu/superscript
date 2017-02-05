@@ -1,9 +1,9 @@
 [![npm version](https://img.shields.io/npm/v/supers.svg)](https://npmjs.org/package/supers)
-[![Licence](https://img.shields.io/npm/l/supers.svg)](LICENSE)
+[![Licence](https://img.shields.io/npm/l/supers.svg)](https://github.com/tripu/superscript/blob/master/LICENSE.md)
 [![Build Status](https://travis-ci.org/tripu/superscript.svg?branch=master)](https://travis-ci.org/tripu/superscript)
-[![Coverage Status](https://coveralls.io/repos/tripu/superscript/badge.svg)](https://coveralls.io/r/tripu/superscript)
-[![Dependency Status](https://david-dm.org/tripu/superscript.svg)](https://david-dm.org/tripu/superscript)
-[![devDependency Status](https://david-dm.org/tripu/superscript/dev-status.svg)](https://david-dm.org/tripu/superscript#info=devDependencies)
+[![dependencies Status](https://david-dm.org/tripu/superscript/status.svg)](https://david-dm.org/tripu/superscript)
+[![devDependencies Status](https://david-dm.org/tripu/superscript/dev-status.svg)](https://david-dm.org/tripu/superscript?type=dev)
+[![Coverage Status](https://coveralls.io/repos/github/tripu/superscript/badge.svg?branch=master)](https://coveralls.io/github/tripu/superscript?branch=master)
 [![Inline docs](https://inch-ci.org/github/tripu/superscript.svg?branch=master)](https://inch-ci.org/github/tripu/superscript)
 
 # superscript
