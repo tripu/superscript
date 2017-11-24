@@ -15,12 +15,10 @@
   "private": false,
   "preferGlobal": "false",
   "devDependencies": {
-    "coveralls": "2.11.16",
+    "coveralls": "3.0.0",
     "istanbul": "0.4.5",
-    "istanbul": "0.4.5",
-    "mocha-lcov-reporter": "1.2.0",
-    "mocha": "3.2.0",
-    "nsp": "2.6.2"
+    "mocha": "4.0.1",
+    "nsp": "3.1.0"
   },
   "scripts": {
     "coverage": "istanbul cover _mocha",
@@ -29,7 +27,7 @@
     "vulns": "nsp check"
   },
   "engines": {
-    "node": "6.9.x || 7.5.x",
-    "npm": "3.10.x || 4.1.x"
+    "node": ">=8.9.1",
+    "npm": ">=5.5.1"
   }
 }
