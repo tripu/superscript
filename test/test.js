@@ -70,7 +70,7 @@ describe('“palette()”', () => {
   var p;
 
   it('should work', (done) => {
-    p = new superscript.palette(GAMUT);
+    p = new superscript.Palette(GAMUT);
     if (!p)
       done('does not work');
     else if (GAMUT !== p.n)

@@ -51,13 +51,24 @@ superscript.hold(check, cb, interval, ...args)
 Invoke callback `cb` once with optional parameters `args` as soon as condition `check` is `true`, checking every `interval` *ms* (by default, *60 Hz ≈ 16.67
 ms*).
 
-### `palette()`
+### `Palette()`
 
 ```javascript
-superscript.palette(n)
+new superscript.Palette(n[, opts])
 ```
 
 Create a palette of `n` evenly-distributed colours (*n ≥ 2*).
+
+Default options:
+
+```json
+{
+  "shuffle": false,
+  "shades": "auto",
+  "greys": "auto",
+  "blackAndWhite": false
+}
+```
 
 Then, invoke `get(i)` on the resulting object to retrieve the *i<sup>th</sup>* colour in the palette (*0 ≥ i < n*):
 

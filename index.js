@@ -2,6 +2,8 @@
 
 const DEFAULT_INTERVAL = 1000 / 60;
 
+const UTILS = require('./lib/utils');
+
 /**
  * Invoke callback <code>cb</code> once with optional parameters <code>args</code> as soon as condition <code>check</code> is <code>true</code>,
  * checking every <code>interval</code> <em>ms</em> (by default, <em>60 Hz ≈ 16.67 ms</em>).
@@ -14,7 +16,7 @@ const hold = (check, cb, interval, ...args) => {
   else if ('undefined' !== typeof window && 'undefined' !== typeof window.setTimeout)
     timer = window.setTimeout;
   else
-    throw new Error('superscript→hold: cannot use “setTimeout()” nor “window.setTimeout()”');
+    throw new Error('superscript.hold: cannot use “setTimeout()” nor “window.setTimeout()”');
   const DELAY = interval ? interval : DEFAULT_INTERVAL;
   (function loop() {
     if (check())
@@ -32,14 +34,20 @@ const hold = (check, cb, interval, ...args) => {
  * <code>get(i, rbg = false)</code>
  */
 
-const palette = function(n) {
-  if (!n || n < 2)
-    throw new Error('superscript→palette: “n” should be an integer ≥ 2');
-  const MAX = 0xff;
+const Palette = function(n, opts) {
+  const OPTIONS = JSON.parse(JSON.stringify(UTILS.DEFAULT_PALETTE_OPTIONS));
+  if (opts)
+    for (let i in opts)
+      OPTIONS[i] = opts[i];
+  const ERROR = UTILS.checkPaletteParams(n, OPTIONS);
+  if (ERROR)
+    throw ERROR;
+  const MAX = 0xff,
+    RANGE = n - (OPTIONS.blackAndWhite ? 2 : 0);
   var x, r, g, b;
   this.n = n;
   this.c = new Array(n);
-  for (let i = 0; i < n; i ++) {
+  for (let i = 0; i < RANGE; i ++) {
     x = i * 6 / n;
     if (x < 1) {
       r = MAX;
@@ -68,13 +76,21 @@ const palette = function(n) {
     }
     this.c[i] = (r << 16) + (g << 8) + b;
   }
+  if (OPTIONS.blackAndWhite) {
+    this.c.unshift(0);
+    this.c.push(0xffffff);
+  }
+  if ('random' === OPTIONS.shuffle)
+    this.c = UTIL.randomiseArray(this.c);
+  else if (OPTIONS.shuffle)
+    this.c = UTIL.shuffleArray(this.c);
 };
 
-palette.prototype.get = function(i, rgb = false) {
+Palette.prototype.get = function(i, rgb = false) {
   if (!this.hasOwnProperty('n') || !this.hasOwnProperty('c'))
-    throw new Error('superscript→palette→get: wrong palette object');
+    throw new Error('superscript.Palette.get: wrong palette object');
   if (i < 0 || i >= this.n)
-    throw new Error('superscript→palette→get: “i” should be an integer ≥ 0 and < n');
+    throw new Error('superscript.Palette.get: “i” should be an integer ≥ 0 and < n');
   if (rgb)
     return (0x1000000 + this.c[i]).toString(16).substr(1, 6);
   else
@@ -89,7 +105,7 @@ palette.prototype.get = function(i, rgb = false) {
 
 if ('undefined' !== typeof exports) {
   exports.hold = hold;
-  exports.palette = palette;
+  exports.Palette = Palette;
   // exports.cache = cache;
   // exports.throttle = throttle;
   // exports.debounce = debounce;
