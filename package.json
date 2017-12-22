@@ -15,6 +15,7 @@
   "private": false,
   "preferGlobal": "false",
   "devDependencies": {
+    "browserify": "14.5.0",
     "coveralls": "3.0.0",
     "istanbul": "0.4.5",
     "mocha": "4.0.1",
@@ -24,7 +25,8 @@
     "coverage": "istanbul cover _mocha",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
     "test": "mocha",
-    "vulns": "nsp check"
+    "vulns": "nsp check",
+    "build": "browserify index.js -s superscript -o dist/superscript.js"
   },
   "engines": {
     "node": ">=8.9.1",

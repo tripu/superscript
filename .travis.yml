@@ -7,3 +7,4 @@ script:
   - npm test
 after_script:
   - npm run coveralls
+  - npm run build
