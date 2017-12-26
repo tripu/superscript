@@ -81,9 +81,9 @@ const Palette = function(n, opts) {
     this.c.push(0xffffff);
   }
   if ('random' === OPTIONS.shuffle)
-    this.c = UTIL.randomiseArray(this.c);
+    this.c = UTILS.randomiseArray(this.c);
   else if (OPTIONS.shuffle)
-    this.c = UTIL.shuffleArray(this.c);
+    this.c = UTILS.shuffleArray(this.c);
 };
 
 Palette.prototype.get = function(i, rgb = false) {
