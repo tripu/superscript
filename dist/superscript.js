@@ -43,39 +43,45 @@ const Palette = function(n, opts) {
   const ERROR = UTILS.checkPaletteParams(n, OPTIONS);
   if (ERROR)
     throw ERROR;
-  const MAX = 0xff,
-    RANGE = n - (OPTIONS.blackAndWhite ? 2 : 0);
-  var x, r, g, b;
+  const MAX = 0x100;
+  let range = n - (OPTIONS.blackAndWhite ? 2 : 0);
+  let shades, x, r, g, b;
+  if (false === OPTIONS.shades) {
+    shades = 0;
+  } else if (true === OPTIONS.shades)
+    shades = 0;
+  else if (true === OPTIONS.shades)
+    shades = 0;
+  else
+    shades = OPTIONS.shades;
   this.n = n;
-  this.c = new Array(n);
-  for (let i = 0; i < RANGE; i ++) {
-    x = i * 6 / n;
+  this.c = [];
+  for (let i = 0; i < range; i ++) {
+    x = i * 6 / range;
+    r = g = b = 0;
     if (x < 1) {
-      r = MAX;
-      g = parseInt(MAX * x);
-      b = 0;
+      r = MAX - 1;
+      g = MAX * x;
     } else if (x < 2) {
-      r = parseInt(MAX - MAX * (x - 1));
-      g = MAX;
-      b = 0;
+      r = MAX - MAX * (x - 1);
+      g = MAX - 1;
     } else if (x < 3) {
-      r = 0;
-      g = MAX;
-      b = parseInt(MAX * (x - 2));
+      g = MAX - 1;
+      b = MAX * (x - 2);
     } else if (x < 4) {
-      r = 0;
-      g = parseInt(MAX - MAX * (x - 3));
-      b = MAX;
+      g = MAX - MAX * (x - 3);
+      b = MAX - 1;
     } else if (x < 5) {
-      r = parseInt(MAX * (x - 4));
-      g = 0;
-      b = MAX;
+      r = MAX * (x - 4);
+      b = MAX - 1;
     } else {
-      r = MAX;
-      g = 0;
-      b = parseInt(MAX - MAX * (x - 5));
+      r = MAX - 1;
+      b = MAX - MAX * (x - 5);
     }
-    this.c[i] = (r << 16) + (g << 8) + b;
+    r = Math.min(MAX - 1, Math.round(r));
+    g = Math.min(MAX - 1, Math.round(g));
+    b = Math.min(MAX - 1, Math.round(b));
+    this.c.push((r << 16) + (g << 8) + b);
   }
   if (OPTIONS.blackAndWhite) {
     this.c.unshift(0);
@@ -102,14 +108,18 @@ Palette.prototype.get = function(i, rgb = false) {
 
 // const throttle = () => {};
 
-// const debounce = () => {};
+/**
+ * https://davidwalsh.name/javascript-debounce-function
+ */
+
+const debounce = null;
 
 if ('undefined' !== typeof exports) {
   exports.hold = hold;
   exports.Palette = Palette;
   // exports.cache = cache;
   // exports.throttle = throttle;
-  // exports.debounce = debounce;
+  exports.debounce = debounce;
 }
 
 },{"./lib/utils":2}],2:[function(require,module,exports){
@@ -166,10 +176,10 @@ const checkPaletteParams = (n, opts) => {
         return new Error('superscript.Palette: “shuffle” must be either “false”, “true” or “random”');
     } else
       return new Error(`superscript.Palette: “${i}” is not a valid option`);
-  if (true === opts.greys && opts.blackAndWhite && n < 3)
+  if (opts.blackAndWhite &&  true === opts.greys && n < 3)
     return new Error('superscript.Palette: “blackAndWhite” and “greys” cannot be both “true” when “n” < 3');
-  if (true === opts.shades && opts.blackAndWhite && n < 4)
-    return new Error('superscript.Palette: “shades” and “blackAndWhite” cannot be both “true” when “n” < 4');
+  if (opts.blackAndWhite && true === opts.shades && n < 4)
+    return new Error('superscript.Palette: “blackAndWhite” and “shades” cannot be both “true” when “n” < 4');
   if (opts.shades + (opts.blackAndWhite ? 2 : 0) < n)
     return new Error(`superscript.Palette: the palette is too small to include ${opts.shades} shades` + (opts.blackAndWhite ? ' plus black and white' : ''));
   return false;

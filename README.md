@@ -103,13 +103,11 @@ Coming soon.
 ```bash
 npm clone https://github.com/tripu/superscript.git
 cd superscript
-npm install
-npm test
-
+npm it
 ```
 
 ## Credits
 
-Copyright &copy; 2017 tripu ([`t@tripu.info`](mailto:t@tripu.info), [`https://tripu.info`](https://tripu.info/)).
+Copyright &copy; 2017&ndash;2018 tripu ([`t@tripu.info`](mailto:t@tripu.info), [`https://tripu.info`](https://tripu.info/)).
 
 This project is licenced [under the terms of the MIT licence](LICENSE.md).

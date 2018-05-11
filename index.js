@@ -107,12 +107,16 @@ Palette.prototype.get = function(i, rgb = false) {
 
 // const throttle = () => {};
 
-// const debounce = () => {};
+/**
+ * https://davidwalsh.name/javascript-debounce-function
+ */
+
+const debounce = null;
 
 if ('undefined' !== typeof exports) {
   exports.hold = hold;
   exports.Palette = Palette;
   // exports.cache = cache;
   // exports.throttle = throttle;
-  // exports.debounce = debounce;
+  exports.debounce = debounce;
 }

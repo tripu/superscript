@@ -84,3 +84,9 @@ describe('“palette()”', () => {
   });
 
 });
+
+describe('debounce()”', () => {
+
+  it('should work');
+
+});
