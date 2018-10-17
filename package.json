@@ -5,9 +5,13 @@
     "type": "git",
     "url": "https://github.com/tripu/superscript"
   },
+  "homepage": "https://github.com/tripu/superscript",
   "description": "A library of miscellaneous JavaScript utilities",
   "license": "MIT",
-  "main": "index",
+  "main": "server.js",
+  "files": [
+    "superscript.js"
+  ],
   "bugs": {
     "url": "https://github.com/tripu/superscript/issues",
     "email": "t@tripu.info"
@@ -27,13 +31,14 @@
   },
   "scripts": {
     "audit": "npm audit | grep -oP 'https://nodesecurity.io/advisories/(\\d+)' | diff known-vulns.txt -",
-    "lint": "eslint *.js lib/",
-    "hint": "jshint *.js lib/",
+    "lint": "eslint server.js lib/ test/",
+    "hint": "jshint server.js lib/ test/",
     "test": "mocha",
-    "jsdoc": "jsdoc --configure jsdoc.json -r *.js lib/",
+    "jsdoc": "jsdoc --configure jsdoc.json -r server.js lib/",
+    "browserify": "browserify server.js -s superscript -o superscript.js",
+    "build": "npm run audit && npm run lint && npm run hint && npm test && npm run jsdoc && npm run browserify",
     "coverage": "istanbul cover _mocha",
-    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
-    "build": "npm run audit && npm run lint && npm run hint && npm test && npm run jsdoc && browserify index.js -s superscript -o dist/superscript.js"
+    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls"
   },
   "engines": {
     "node": "8 || 10",

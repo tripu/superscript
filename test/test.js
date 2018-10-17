@@ -1,6 +1,8 @@
+/* jshint node: true, mocha: true */
+
 'use strict';
 
-const superscript = require('../index');
+const superscript = require('../server');
 
 describe('“hold()”', () => {
 

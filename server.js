@@ -1,3 +1,6 @@
+/* jshint node: true */
+/* globals window: false */
+
 'use strict';
 
 const DEFAULT_INTERVAL = 1000 / 60;

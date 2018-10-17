@@ -1,3 +1,7 @@
+# superscript
+
+*A library of miscellaneous JavaScript utilities*
+
 [![npm version](https://img.shields.io/npm/v/supers.svg)](https://npmjs.org/package/supers)
 [![Licence](https://img.shields.io/npm/l/supers.svg)](https://github.com/tripu/superscript/blob/master/LICENSE.md)
 [![Build Status](https://travis-ci.org/tripu/superscript.svg?branch=master)](https://travis-ci.org/tripu/superscript)
@@ -6,41 +10,43 @@
 [![Coverage Status](https://coveralls.io/repos/github/tripu/superscript/badge.svg?branch=master)](https://coveralls.io/github/tripu/superscript?branch=master)
 [![Inline docs](https://inch-ci.org/github/tripu/superscript.svg?branch=master)](https://inch-ci.org/github/tripu/superscript)
 
-# superscript
-
-A library of miscellaneous JavaScript utilities
+**Contents:**
 
 * [Usage](#usage)
-  * [JavaScript](#javascript)
-  * [Node.js](#nodejs)
-* [Reference](#reference)
+  * [On the browser](#on-the-browser)
+  * [On Node.js](#on-nodejs)
+* [Documentation](#documentation)
   * [`hold()`](#hold)
   * [`palette()`](#palette)
   * [`cache()`](#cache)
   * [`throttle()`](#throttle)
   * [`debounce()`](#debounce)
+* [Reference](#reference)
 * [Contributing](#contributing)
 * [Credits](#credits)
 
 ## Usage
 
-### JavaScript
+### On the browser
 
-```html
-<script src="https://tripu.github.io/superscript/index.js"></script>
-```
+Either of these methods should work:
 
-### Node.js
+* Download [the *browserified* version from GitHub](https://tripu.github.io/superscript/superscript.js) and load it with
+  `<script src="superscript.js"></script>`
+* Load it from [jsDelivr](https://www.jsdelivr.com/): `<script src="https://cdn.jsdelivr.net/npm/supers/superscript.js"></script>`
+* Load it from [Unpkg](https://unpkg.com/): `<script src="https://unpkg.com/supers/superscript.js"></script>`
+
+### On Node.js
 
 ```bash
-npm install supers
+$ npm i supers
 ```
 
 ```javascript
 const superscript = require('supers');
 ```
 
-## Reference
+## Documentation
 
 ### `hold()`
 
@@ -97,6 +103,10 @@ Coming soon.
 ### `debounce()`
 
 Coming soon.
+
+## Reference
+
+[`tripu.github.io/superscript/doc`](https://tripu.github.io/superscript/doc/)
 
 ## Contributing
 
