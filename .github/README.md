@@ -12,31 +12,33 @@
 
 **Contents:**
 
-* [Usage](#usage)
-  * [On the browser](#on-the-browser)
-  * [On Node.js](#on-nodejs)
-* [Documentation](#documentation)
-  * [`hold()`](#hold)
-  * [`palette()`](#palette)
-  * [`cache()`](#cache)
-  * [`throttle()`](#throttle)
-  * [`debounce()`](#debounce)
-* [Reference](#reference)
-* [Contributing](#contributing)
-* [Credits](#credits)
+1. [Usage](#1-usage)
+  1. [On the browser](#11-on-the-browser)
+  1. [On Node.js](#12-on-nodejs)
+1. [Documentation](#2-documentation)
+  1. [`hold()`](#21-hold)
+  1. [`palette()`](#22-palette)
+  1. [`cache()`](#23-cache)
+  1. [`throttle()`](#24-throttle)
+  1. [`debounce()`](#25-debounce)
+1. [Reference](#3-reference)
+1. [Contributing](#4-contributing)
+1. [Credits](#5-credits)
 
-## Usage
+## 1. Usage
 
-### On the browser
+### 1.1. On the browser
 
-Either of these methods should work:
+Any of these should work:
 
-* Download [the *browserified* version from GitHub](https://tripu.github.io/superscript/superscript.js) and load it with
+Download [the *browserified* version from GitHub](https://tripu.github.io/superscript/superscript.js) and load it with  
   `<script src="superscript.js"></script>`
-* Load it from [jsDelivr](https://www.jsdelivr.com/): `<script src="https://cdn.jsdelivr.net/npm/supers/superscript.js"></script>`
-* Load it from [Unpkg](https://unpkg.com/): `<script src="https://unpkg.com/supers/superscript.js"></script>`
+* Load it from [jsDelivr](https://www.jsdelivr.com/):  
+  `<script src="https://cdn.jsdelivr.net/npm/supers/superscript.js"></script>`
+* Load it from [Unpkg](https://unpkg.com/):  
+`<script src="https://unpkg.com/supers/superscript.js"></script>`
 
-### On Node.js
+### 1.2. On Node.js
 
 ```bash
 $ npm i supers
@@ -46,9 +48,9 @@ $ npm i supers
 const superscript = require('supers');
 ```
 
-## Documentation
+## 2. Documentation
 
-### `hold()`
+### 2.1. `hold()`
 
 ```javascript
 superscript.hold(check, cb, interval, ...args)
@@ -57,7 +59,7 @@ superscript.hold(check, cb, interval, ...args)
 Invoke callback `cb` once with optional parameters `args` as soon as condition `check` is `true`, checking every `interval` *ms* (by default, *60 Hz ≈ 16.67
 ms*).
 
-### `Palette()`
+### 2.2. `Palette()`
 
 ```javascript
 new superscript.Palette(n[, opts])
@@ -92,23 +94,23 @@ chart[2].css('color', '#' + palette.get(2, true));
 chart[3].css('color', '#' + palette.get(3, true));
 ```
 
-### `cache()`
+### 2.3. `cache()`
 
 Coming soon.
 
-### `throttle()`
+### 2.4. `throttle()`
 
 Coming soon.
 
-### `debounce()`
+### 2.5.`debounce()`
 
 Coming soon.
 
-## Reference
+## 3. Reference
 
 [`tripu.github.io/superscript/doc`](https://tripu.github.io/superscript/doc/)
 
-## Contributing
+## 4. Contributing
 
 ```bash
 npm clone https://github.com/tripu/superscript.git
@@ -116,7 +118,7 @@ cd superscript
 npm i && npm run build
 ```
 
-## Credits
+## 5. Credits
 
 Copyright &copy; 2017&ndash;2018 tripu ([`t@tripu.info`](mailto:t@tripu.info), [`https://tripu.info`](https://tripu.info/)).
 

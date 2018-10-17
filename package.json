@@ -10,6 +10,7 @@
   "license": "MIT",
   "main": "server.js",
   "files": [
+    "lib/",
     "superscript.js"
   ],
   "bugs": {
