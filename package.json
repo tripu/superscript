@@ -50,7 +50,7 @@
     "npm": "6"
   },
   "jsdoc2md": {
-    "template": "README.hbs",
+    "template": "template.hbs",
     "global-index-format": "grouped",
     "example-lang": "js",
     "heading-depth": "3",
