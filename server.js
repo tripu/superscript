@@ -10,8 +10,7 @@ const UTILS = require('./lib/utils');
 /**
  * Invoke callback `cb` once with optional parameters `args` as soon as condition `check` is `true`, checking every `interval` *ms*
  * (by default, *60 Hz ≈ 16.67 ms*).
- * Invoke callback <code>cb</code> once with optional parameters <code>args</code> as soon as condition <code>check</code> is <code>true</code>,
- * checking every <code>interval</code> <em>ms</em> (by default, <em>60 Hz ≈ 16.67 ms</em>).
+ *
  * @example
  * superscript.hold(check, cb, interval, ...args)
  */
@@ -34,10 +33,10 @@ const hold = (check, cb, interval, ...args) => {
 };
 
 /**
- * Create a palette of <code>n</code> evenly-distributed colours (<em>n ≥ 2</em>).
+ * Create a palette of `n` evenly-distributed colours (*n ≥ 2*).
+ *
  * Invoke <code>get(i)</code> on the resulting object to retrieve the <em>i<sup>th</sup></em> colour in the palette (<em>0 ≥ i < n</em>):
  * <code>get(i, rbg = false)</code>
- * Create a palette of `n` evenly-distributed colours (*n ≥ 2*).
  *
  * Default options:
  *

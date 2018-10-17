@@ -12,17 +12,15 @@
 
 **Contents:**
 
-1. [Usage](#1-usage)
-   1. [On the browser](#11-on-the-browser)
-   1. [On Node.js](#12-on-nodejs)
+1. [Installation](#1-installation)
 1. [Documentation](#2-documentation)
 1. [Coming soon](#3-coming-soon)
 1. [Contributing](#4-contributing)
 1. [Credits](#5-credits)
 
-## 1. Usage
+## 1. Installation
 
-### 1.1. On the browser
+### On the browser
 
 Any of these should work:
 
@@ -33,7 +31,7 @@ Any of these should work:
 * Load it via [Unpkg](https://unpkg.com/):  
 `<script src="https://unpkg.com/supers/superscript.js"></script>`
 
-### 1.2. On Node.js
+### On Node.js
 
 ```bash
 $ npm i supers
@@ -55,8 +53,6 @@ const superscript = require('supers');
 ### hold()
 Invoke callback `cb` once with optional parameters `args` as soon as condition `check` is `true`, checking every `interval` *ms*
 (by default, *60 Hz ≈ 16.67 ms*).
-Invoke callback <code>cb</code> once with optional parameters <code>args</code> as soon as condition <code>check</code> is <code>true</code>,
-checking every <code>interval</code> <em>ms</em> (by default, <em>60 Hz ≈ 16.67 ms</em>).
 
 **Kind**: global function  
 **Example**  
@@ -66,10 +62,10 @@ superscript.hold(check, cb, interval, ...args)
 <a name="Palette"></a>
 
 ### Palette()
-Create a palette of <code>n</code> evenly-distributed colours (<em>n ≥ 2</em>).
+Create a palette of `n` evenly-distributed colours (*n ≥ 2*).
+
 Invoke <code>get(i)</code> on the resulting object to retrieve the <em>i<sup>th</sup></em> colour in the palette (<em>0 ≥ i < n</em>):
 <code>get(i, rbg = false)</code>
-Create a palette of `n` evenly-distributed colours (*n ≥ 2*).
 
 Default options:
 
@@ -106,9 +102,9 @@ new superscript.Palette(n[, opts])
 
 ## 3. Coming soon
 
-* `debounce()` (based on [David Walsh' code](https://davidwalsh.name/javascript-debounce-function))
 * `cache()`
 * `throttle()`
+* `debounce()` (based on [David Walsh' code](https://davidwalsh.name/javascript-debounce-function))
 
 ## 4. Contributing
 
