@@ -8,8 +8,12 @@ const DEFAULT_INTERVAL = 1000 / 60;
 const UTILS = require('./lib/utils');
 
 /**
+ * Invoke callback `cb` once with optional parameters `args` as soon as condition `check` is `true`, checking every `interval` *ms*
+ * (by default, *60 Hz ≈ 16.67 ms*).
  * Invoke callback <code>cb</code> once with optional parameters <code>args</code> as soon as condition <code>check</code> is <code>true</code>,
  * checking every <code>interval</code> <em>ms</em> (by default, <em>60 Hz ≈ 16.67 ms</em>).
+ * @example
+ * superscript.hold(check, cb, interval, ...args)
  */
 
 const hold = (check, cb, interval, ...args) => {
@@ -31,10 +35,38 @@ const hold = (check, cb, interval, ...args) => {
 
 /**
  * Create a palette of <code>n</code> evenly-distributed colours (<em>n ≥ 2</em>).
- *
  * Invoke <code>get(i)</code> on the resulting object to retrieve the <em>i<sup>th</sup></em> colour in the palette (<em>0 ≥ i < n</em>):
- *
  * <code>get(i, rbg = false)</code>
+ * Create a palette of `n` evenly-distributed colours (*n ≥ 2*).
+ *
+ * Default options:
+ *
+ * ```json
+ * {
+ *   "shuffle": false,
+ *   "shades": "auto",
+ *   "greys": "auto",
+ *   "blackAndWhite": false
+ * }
+ * ```
+ *
+ * Then, invoke `get(i)` on the resulting object to retrieve the *i<sup>th</sup>* colour in the palette (*0 ≥ i < n*):
+ *
+ * ```javascript
+ * new superscript.palette(10).get(5);        // 65535
+ * new superscript.palette(10).get(0, true);  // 'ff0000'
+ * ```
+ *
+ * ```javascript
+ * // Assume there's a pie chart with 4 slices. Let's assign colours to them:
+ * const palette = new superscript.palette(4);
+ * chart[0].css('color', '#' + palette.get(0, true));
+ * chart[1].css('color', '#' + palette.get(1, true));
+ * chart[2].css('color', '#' + palette.get(2, true));
+ * chart[3].css('color', '#' + palette.get(3, true));
+ * ```
+ * @example
+ * new superscript.Palette(n[, opts])
  */
 
 const Palette = function(n, opts) {
@@ -107,20 +139,7 @@ Palette.prototype.get = function(i, rgb = false) {
     return this.c[i];
 };
 
-// const cache = () => {};
-
-// const throttle = () => {};
-
-/**
- * https://davidwalsh.name/javascript-debounce-function
- */
-
-const debounce = null;
-
 if ('undefined' !== typeof exports) {
   exports.hold = hold;
   exports.Palette = Palette;
-  // exports.cache = cache;
-  // exports.throttle = throttle;
-  exports.debounce = debounce;
 }

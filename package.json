@@ -5,7 +5,12 @@
     "type": "git",
     "url": "https://github.com/tripu/superscript"
   },
-  "homepage": "https://github.com/tripu/superscript",
+  "homepage": "https://github.com/tripu/superscript/blob/master/.github/README.md",
+  "author": {
+    "name": "tripu",
+    "email": "t@tripu.info",
+    "url": "https://tripu.info/"
+  },
   "description": "A library of miscellaneous JavaScript utilities",
   "license": "MIT",
   "main": "server.js",
@@ -25,9 +30,8 @@
     "eslint-plugin-node": "7.0.1",
     "eslint": "5.7.0",
     "istanbul": "0.4.5",
-    "jsdoc": "3.5.5",
+    "jsdoc-to-markdown": "4.0.1",
     "jshint": "2.9.6",
-    "minami": "1.2.3",
     "mocha": "5.2.0"
   },
   "scripts": {
@@ -35,14 +39,21 @@
     "lint": "eslint server.js lib/ test/",
     "hint": "jshint server.js lib/ test/",
     "test": "mocha",
-    "jsdoc": "jsdoc --configure jsdoc.json -r server.js lib/",
-    "browserify": "browserify server.js -s superscript -o superscript.js",
-    "build": "npm run audit && npm run lint && npm run hint && npm test && npm run jsdoc && npm run browserify",
     "coverage": "istanbul cover _mocha",
-    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls"
+    "browserify": "browserify server.js -s superscript -o superscript.js",
+    "jsdoc": "jsdoc2md server.js > .github/README.md && sed -i 's/^### $//' .github/README.md",
+    "build": "npm run audit && npm run lint && npm run hint && npm test && npm run coverage && npm run browserify && npm run jsdoc",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "engines": {
     "node": "8 || 10",
     "npm": "6"
+  },
+  "jsdoc2md": {
+    "template": "README.hbs",
+    "global-index-format": "grouped",
+    "example-lang": "js",
+    "heading-depth": "3",
+    "param-list-format": "list"
   }
 }

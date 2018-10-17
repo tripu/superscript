@@ -1,7 +1,8 @@
 {
   "files": {
     "included": [
-      "index.js"
+      "server.js",
+      "lib/"
     ]
   }
 }
