@@ -103,7 +103,7 @@ Coming soon.
 ```bash
 npm clone https://github.com/tripu/superscript.git
 cd superscript
-npm it
+npm i && npm run build
 ```
 
 ## Credits

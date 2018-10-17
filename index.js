@@ -53,6 +53,7 @@ const Palette = function(n, opts) {
     shades = 0;
   else
     shades = OPTIONS.shades;
+  console.log(shades); // eslint-disable-line no-console
   this.n = n;
   this.c = [];
   for (let i = 0; i < range; i ++) {
