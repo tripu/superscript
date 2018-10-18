@@ -64,6 +64,8 @@ superscript.hold(check, cb, interval, ...args)
 ### Palette()
 Create a palette of `n` evenly-distributed colours (*n ≥ 2*).
 
+&#9758; [Demo](https://codepen.io/tripu/full/JEMBoN)
+
 Invoke <code>get(i)</code> on the resulting object to retrieve the <em>i<sup>th</sup></em> colour in the palette (<em>0 ≥ i < n</em>):
 <code>get(i, rbg = false)</code>
 
