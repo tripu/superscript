@@ -46,6 +46,7 @@ const superscript = require('supers');
 
 
 * [hold()](#hold)
+* [debounce()](#debounce)
 * [Palette()](#Palette)
 
 <a name="hold"></a>
@@ -59,6 +60,12 @@ Invoke callback `cb` once with optional parameters `args` as soon as condition `
 ```js
 superscript.hold(check, cb, interval, ...args)
 ```
+<a name="debounce"></a>
+
+### debounce()
+https://davidwalsh.name/javascript-debounce-function
+
+**Kind**: global function  
 <a name="Palette"></a>
 
 ### Palette()

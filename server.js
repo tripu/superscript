@@ -5,7 +5,7 @@
 
 const DEFAULT_INTERVAL = 1000 / 60;
 
-const UTILS = require('./lib/utils');
+const UTILS = require('./utils');
 
 /**
  * Invoke callback `cb` once with optional parameters `args` as soon as condition `check` is `true`, checking every `interval` *ms*
@@ -31,6 +31,25 @@ const hold = (check, cb, interval, ...args) => {
       timer(loop, DELAY);
   })();
 };
+
+ /**
+  * https://davidwalsh.name/javascript-debounce-function
+  */
+
+ const debounce = (func, wait, immediate) => {
+   var timeout;
+   return function() {
+     var context = this, args = arguments;
+     var later = function() {
+       timeout = null;
+       if (!immediate) func.apply(context, args);
+     };
+     var callNow = immediate && !timeout;
+     clearTimeout(timeout);
+     timeout = setTimeout(later, wait);
+     if (callNow) func.apply(context, args);
+   };
+ };
 
 /**
  * Create a palette of `n` evenly-distributed colours (*n ≥ 2*).
@@ -142,5 +161,6 @@ Palette.prototype.get = function(i, rgb = false) {
 
 if ('undefined' !== typeof exports) {
   exports.hold = hold;
+  exports.debounce = debounce;
   exports.Palette = Palette;
 }

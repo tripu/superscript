@@ -2,7 +2,7 @@
 
 'use strict';
 
-const superscript = require('../server');
+const superscript = require('./server');
 
 describe('“hold()”', () => {
 
@@ -64,6 +64,58 @@ describe('“hold()”', () => {
 
 });
 
+/* describe('debounce()”', () => {
+
+  before(() => {
+    if ('undefined' !== typeof setTimeout)
+      timer = setTimeout;
+    else if ('undefined' !== typeof window && 'undefined' !== typeof window.setTimeout)
+      timer = window.setTimeout;
+    else
+      throw new Error('superscript.hold: cannot use “setTimeout()” nor “window.setTimeout()”');
+  });
+
+  it('should work', (done) => {
+    reset();
+    superscript.hold(oneSecondHasElapsed, done);
+  });
+
+  it('should invoke callback immediately if check passes', (done) => {
+    const checkImmediacy = () => done(checks > 1 ? 'checked condition more than once' : null);
+    reset();
+    superscript.hold(yes, checkImmediacy);
+  });
+
+  it('should honour custom interval', (done) => {
+    const FOUR_HERTZ = 250;
+    const checkAccuracy = () => {
+      const DELTA = new Date().getTime() - start - ONE_SECOND;
+      if (DELTA <= 0)
+        done('ran callback too soon');
+      else if (DELTA >= FOUR_HERTZ)
+        done('ran callback too late');
+      else if (checks < 5)
+        done('did not checked condition often enough');
+      else if (checks > 5)
+        done('checked condition too often');
+      else
+        done();
+    };
+    reset();
+    superscript.hold(oneSecondHasElapsed, checkAccuracy, FOUR_HERTZ);
+  });
+
+  it('should pass along parameters to callback', (done) => {
+    const x = '1',
+      y = '2',
+      z = '3';
+    const checkParams = (a, b, c) => done(a === x && b === y && c === z ? null : 'callback did not receive right parameters');
+    reset();
+    superscript.hold(yes, checkParams, null, x, y, z);
+  });
+
+}); */
+
 describe('“palette()”', () => {
 
   const GAMUT = 23,
@@ -84,11 +136,5 @@ describe('“palette()”', () => {
     else
       done();
   });
-
-});
-
-describe('debounce()”', () => {
-
-  it('should work');
 
 });

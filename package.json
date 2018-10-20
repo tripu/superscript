@@ -15,7 +15,7 @@
   "license": "MIT",
   "main": "server.js",
   "files": [
-    "lib/",
+    "utils.js",
     "superscript.js"
   ],
   "bugs": {
@@ -29,25 +29,48 @@
     "coveralls": "3.0.2",
     "eslint-plugin-node": "7.0.1",
     "eslint": "5.7.0",
-    "istanbul": "0.4.5",
     "jsdoc-to-markdown": "4.0.1",
     "jshint": "2.9.6",
-    "mocha": "5.2.0"
+    "mocha": "5.2.0",
+    "nyc": "13.1.0"
   },
   "scripts": {
-    "audit": "npm audit | grep -oP 'https://nodesecurity.io/advisories/(\\d+)' | diff known-vulns.txt -",
-    "lint": "eslint server.js lib/ test/",
-    "hint": "jshint server.js lib/ test/",
-    "test": "mocha",
-    "coverage": "istanbul cover _mocha",
+    "audit": "npm audit",
+    "lint": "eslint server.js utils.js tests.js",
+    "hint": "jshint server.js utils.js tests.js",
+    "test": "nyc --reporter=html --reporter=text mocha \"tests.js\" --timeout 2000 --reporter spec --colors",
     "browserify": "browserify server.js -s superscript -o superscript.js",
     "jsdoc": "jsdoc2md server.js > .github/README.md && sed -i 's/^### $//' .github/README.md",
-    "build": "npm run audit && npm run lint && npm run hint && npm test && npm run coverage && npm run browserify && npm run jsdoc",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "build": "npm run audit && npm run lint && npm run hint && npm test && npm run browserify && npm run jsdoc",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "engines": {
     "node": "8 || 10",
     "npm": "6"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true,
+      "browser": true,
+      "mocha": true
+    },
+    "plugins": [
+      "node"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:node/recommended"
+    ]
+  },
+  "jshintConfig": {
+    "esversion": 6,
+    "strict": true
+  },
+  "nyc": {
+    "include": [
+      "server.js",
+      "utils.js"
+    ]
   },
   "jsdoc2md": {
     "template": "template.hbs",

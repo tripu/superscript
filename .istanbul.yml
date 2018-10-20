@@ -1,4 +1,0 @@
-instrumentation:
-  includes:
-    - server.js
-    - lib/
