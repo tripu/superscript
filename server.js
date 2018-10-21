@@ -99,16 +99,15 @@ const Palette = function(n, opts) {
     throw ERROR;
   const MAX = 0x100;
   let range = n - (OPTIONS.blackAndWhite ? 2 : 0);
-  let shades, x, r, g, b;
-  if (false === OPTIONS.shades) {
+  let /* shades, */ x, r, g, b;
+/*  if (false === OPTIONS.shades) {
     shades = 0;
   } else if (true === OPTIONS.shades)
     shades = 0;
   else if (true === OPTIONS.shades)
     shades = 0;
   else
-    shades = OPTIONS.shades;
-  console.log(shades); // eslint-disable-line no-console
+    shades = OPTIONS.shades; */
   this.n = n;
   this.c = [];
   for (let i = 0; i < range; i ++) {
