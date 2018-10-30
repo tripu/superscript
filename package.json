@@ -60,7 +60,11 @@
     "extends": [
       "eslint:recommended",
       "plugin:node/recommended"
-    ]
+    ],
+    "rules": {
+      "no-eval": "error",
+      "no-implicit-eval": "error"
+    }
   },
   "jshintConfig": {
     "esversion": 6,
