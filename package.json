@@ -27,8 +27,8 @@
   "devDependencies": {
     "browserify": "16.2.3",
     "coveralls": "3.0.2",
-    "eslint-plugin-node": "7.0.1",
-    "eslint": "5.7.0",
+    "eslint": "5.9.0",
+    "eslint-plugin-node": "8.0.0",
     "jsdoc-to-markdown": "4.0.1",
     "jshint": "2.9.6",
     "mocha": "5.2.0",
@@ -40,7 +40,7 @@
     "hint": "jshint server.js utils.js tests.js",
     "test": "nyc --reporter=html --reporter=text mocha \"tests.js\" --timeout 2000 --reporter spec --colors",
     "browserify": "browserify server.js -s superscript -o superscript.js",
-    "jsdoc": "jsdoc2md server.js > .github/README.md && sed -i 's/^### $//' .github/README.md",
+    "jsdoc": "jsdoc2md server.js | sed 's/^### $//' > .github/README.md",
     "build": "npm run audit && npm run lint && npm run hint && npm test && npm run browserify && npm run jsdoc",
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
@@ -63,7 +63,7 @@
     ],
     "rules": {
       "no-eval": "error",
-      "no-implicit-eval": "error"
+      "no-implied-eval": "error"
     }
   },
   "jshintConfig": {
