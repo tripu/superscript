@@ -27,7 +27,7 @@
   "devDependencies": {
     "browserify": "16.2.3",
     "coveralls": "3.0.2",
-    "eslint": "5.9.0",
+    "eslint": "6.6.0",
     "eslint-plugin-node": "8.0.0",
     "jsdoc-to-markdown": "4.0.1",
     "jshint": "2.9.6",
