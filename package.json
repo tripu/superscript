@@ -31,7 +31,7 @@
     "eslint-plugin-node": "8.0.0",
     "jsdoc-to-markdown": "4.0.1",
     "jshint": "2.9.6",
-    "mocha": "5.2.0",
+    "mocha": "6.2.2",
     "nyc": "13.1.0"
   },
   "scripts": {
