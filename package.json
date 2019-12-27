@@ -28,7 +28,7 @@
         "browserify": "^16.5.0",
         "coveralls": "^3.0.7",
         "eslint": "^6.3.0",
-        "eslint-plugin-node": "^10.0.0",
+        "eslint-plugin-node": "^11.0.0",
         "jsdoc-to-markdown": "^5.0.1",
         "jshint": "^2.10.2",
         "mocha": "^6.2.0",
