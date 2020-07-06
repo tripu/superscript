@@ -35,7 +35,7 @@
         "nyc": "^15.0.0"
     },
     "scripts": {
-        "audit": "npm audit",
+        "audit": "npm audit --audit-level=moderate",
         "lint": "eslint server.js utils.js tests.js",
         "hint": "jshint server.js utils.js tests.js",
         "test": "nyc --reporter=html --reporter=text mocha \"tests.js\" --timeout 2000 --reporter spec --colors",
