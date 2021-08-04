@@ -33,7 +33,9 @@
         "jsdoc": "jsdoc2md server.js | sed 's/^### $//' > .github/README.md",
         "build.original": "npm run audit && npm run lint && npm run hint && npm test && npm run browserify && npm run jsdoc",
         "build": "npm run audit && npm run hint && npm test && npm run browserify && npm run jsdoc",
-        "coveralls": "nyc report --reporter=text-lcov | coveralls"
+        "coveralls": "nyc report --reporter=text-lcov | coveralls",
+        "prepublishOnly": "cp .github/README.md .",
+        "postpublish": "rm -f README.md"
     },
     "engines": {
         "node": "14 || 16",
