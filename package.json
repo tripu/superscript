@@ -46,8 +46,8 @@
         "coveralls": "nyc report --reporter=text-lcov | coveralls"
     },
     "engines": {
-        "node": "10 || 12",
-        "npm": "6"
+        "node": "14 || 16",
+        "npm": "6 || 7"
     },
     "eslintConfig": {
         "env": {

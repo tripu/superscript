@@ -43,7 +43,7 @@ const superscript = require('supers');
 
 ## 2. Documentation
 
-
+### Functions
 
 * [hold()](#hold)
 * [debounce()](#debounce)
