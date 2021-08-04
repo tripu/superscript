@@ -24,16 +24,6 @@
     },
     "private": false,
     "preferGlobal": false,
-    "devDependencies": {
-        "browserify": "^17.0.0",
-        "coveralls": "^3.0.9",
-        "eslint": "^7.0.0",
-        "eslint-plugin-node": "^11.0.0",
-        "jsdoc-to-markdown": "^7.0.0",
-        "jshint": "^2.10.2",
-        "mocha": "^9.0.0",
-        "nyc": "^15.0.0"
-    },
     "scripts": {
         "audit": "npm audit --audit-level=moderate",
         "lint": "eslint server.js utils.js tests.js",
@@ -343,5 +333,15 @@
         "example-lang": "js",
         "heading-depth": "3",
         "param-list-format": "list"
+    },
+    "devDependencies": {
+        "browserify": "^17.0.0",
+        "coveralls": "^3.1.1",
+        "eslint": "^7.32.0",
+        "eslint-plugin-node": "^11.1.0",
+        "jsdoc-to-markdown": "^7.0.1",
+        "jshint": "^2.13.0",
+        "mocha": "^9.0.3",
+        "nyc": "^15.1.0"
     }
 }
