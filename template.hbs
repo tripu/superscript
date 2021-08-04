@@ -4,7 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/supers.svg)](https://npmjs.org/package/supers)
 [![Licence](https://img.shields.io/npm/l/supers.svg)](https://github.com/tripu/superscript/blob/master/LICENSE.md)
-[![Build Status](https://travis-ci.org/tripu/superscript.svg?branch=master)](https://travis-ci.org/tripu/superscript)
+[![Build Status](https://travis-ci.com/tripu/superscript.svg?branch=master)](https://travis-ci.com/tripu/superscript)
 [![dependencies Status](https://david-dm.org/tripu/superscript/status.svg)](https://david-dm.org/tripu/superscript)
 [![devDependencies Status](https://david-dm.org/tripu/superscript/dev-status.svg)](https://david-dm.org/tripu/superscript?type=dev)
 [![Coverage Status](https://coveralls.io/repos/github/tripu/superscript/badge.svg?branch=master)](https://coveralls.io/github/tripu/superscript?branch=master)
