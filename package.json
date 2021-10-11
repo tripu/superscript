@@ -25,7 +25,7 @@
     "private": false,
     "preferGlobal": false,
     "scripts": {
-        "audit": "npm audit --audit-level=moderate",
+        "audit": "npm audit --audit-level=high",
         "lint": "eslint server.js utils.js tests.js",
         "hint": "jshint server.js utils.js tests.js",
         "test": "nyc --reporter=html --reporter=text mocha \"tests.js\" --timeout 2000 --reporter spec --colors",
@@ -339,7 +339,7 @@
     "devDependencies": {
         "browserify": "^17.0.0",
         "coveralls": "^3.1.1",
-        "eslint": "^7.32.0",
+        "eslint": "^8.0.0",
         "eslint-plugin-node": "^11.1.0",
         "jsdoc-to-markdown": "^7.0.1",
         "jshint": "^2.13.0",
