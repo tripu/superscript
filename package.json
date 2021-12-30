@@ -1,6 +1,6 @@
 {
     "name": "supers",
-    "version": "0.3.1",
+    "version": "0.3.2",
     "repository": {
         "type": "git",
         "url": "https://github.com/tripu/superscript"
@@ -38,8 +38,8 @@
         "postpublish": "rm -f README.md"
     },
     "engines": {
-        "node": "14 || 16",
-        "npm": "6 || 7"
+        "node": ">= 14",
+        "npm": ">= 7"
     },
     "eslintConfig": {
         "env": {
