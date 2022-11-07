@@ -1,13 +1,14 @@
-dist: focal
 os: linux
+dist: jammy
 language: node_js
 node_js:
-  - node
-  - lts/*
+  - 18
+  - 16
 before_install:
   - npm i -g npm@latest
 script:
   - npm ci
+  - npm t
   - npm run build
 after_script:
   - npm run coveralls
